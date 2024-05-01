@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>livros</title>
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+
+    <style>
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        th, td {
+          padding: 8px;
+          text-align: left;
+          border-bottom: 1px solid #DDD;
+        }
+        
+        tr:hover {background-color: #D6EEEE;}
+    </style>
+</head>
+<body>
+    <h1>Livros</h1>
+    <a class="btn" href="/livro/create">Adicionar</a>
+    <hr>
+
+
+    <table>
+        <tr>
+            <th>Nome do livro</th>
+            <th>Preço do livro</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+        {% for livro in livros %}
+        <tr>
+            <td>{{ livro['nome'] }}</td>
+            <td>R$ {{ livro['valor'] }}</td>
+            <td>{{ livro['status_atual'] }}</td>
+            <td>
+                <a href="/livro/update/{{ livro['id'] }}">Editar</a>
+                <a class="btn btn-del" href="/livro/del/{{ livro['id'] }}">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

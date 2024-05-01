@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro | Atualizar</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+
+</head>
+<body>
+    {{ livro }}
+    <a class="btn btn-gray" href="/">Voltar</a>
+    <form action="/livro/store" method="POST">
+        <div class="input">
+            <label for="nome">Nome do livro: </label>
+            <input type="text" name="nome" id="nome" placeholder="Nome...">
+        </div>
+        <div class="input">
+            <label for="preco">Preço do livro: </label>
+            <input type="number" name="preco" id="preco" placeholder="Preço...">
+        </div>
+        <div class="input">
+            <label for="status">Status do livro: </label>
+            <select name="status" id="status">
+                <option value="Não li">Não li</option>
+                <option value="Lido">Lido</option>
+                <option value="Lendo">Lendo</option>
+            </select>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
